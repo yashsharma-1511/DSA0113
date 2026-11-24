@@ -1,0 +1,2 @@
+throw;   -> caught as ClaimError: exceeds cover
+throw e; -> caught as std::exception: std::exception

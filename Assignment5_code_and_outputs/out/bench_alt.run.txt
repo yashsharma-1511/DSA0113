@@ -1,0 +1,5 @@
+A2 n=1000000 virtual=3.93 ms (3.93 ns/bill)  dynamic_cast chain(k=4)=21.32 ms (21.32 ns/bill) agree=1  sizeof(NBill-with-vptr)=8 sizeof(plain int-less struct)=1
+A2 sizeof: OP(with vptr)=24  TOP(no vptr)=16
+A3 n=1000000 abstract Payer=1.63 ms  std::function=1.73 ms  function pointer=1.56 ms | sizeof(Ins)=24 sizeof(std::function)=32 sizeof(fnptr)=8
+B1 n=1000000 virtual(one list)=2.29 ms  templates(4 containers)=0.95 ms  agree=1
+B4 n=10000000 virtual=35.1 ms  rule-table(index)=27.5 ms  rule-table(string key lookup)=142.3 ms  sizeof(Rule)=32

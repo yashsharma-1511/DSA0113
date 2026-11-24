@@ -1,0 +1,28 @@
+
+=================================================================
+==286==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 24 byte(s) in 1 object(s) allocated from:
+    #0 0x7fb01c4fe548 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:95
+    #1 0x559d0ec39567 in processBill(int) src/a5_raii.cpp:10
+    #2 0x559d0ec396ce in main src/a5_raii.cpp:26
+    #3 0x7fb01bc2a1c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #4 0x7fb01bc2a28a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #5 0x559d0ec39404 in _start (/home/claude/work/out/a5_MANUAL+0x2404) (BuildId: c4174f734906a4b7b2fc5151215aea257e89cf29)
+
+Indirect leak of 400 byte(s) in 1 object(s) allocated from:
+    #0 0x7fb01c4fe548 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:95
+    #1 0x559d0ec3a505 in std::__new_allocator<int>::allocate(unsigned long, void const*) /usr/include/c++/13/bits/new_allocator.h:151
+    #2 0x559d0ec3a3da in std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) /usr/include/c++/13/bits/alloc_traits.h:482
+    #3 0x559d0ec3a3da in std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) /usr/include/c++/13/bits/stl_vector.h:381
+    #4 0x559d0ec3a130 in std::_Vector_base<int, std::allocator<int> >::_M_create_storage(unsigned long) /usr/include/c++/13/bits/stl_vector.h:398
+    #5 0x559d0ec39d8c in std::_Vector_base<int, std::allocator<int> >::_Vector_base(unsigned long, std::allocator<int> const&) /usr/include/c++/13/bits/stl_vector.h:335
+    #6 0x559d0ec39aa6 in std::vector<int, std::allocator<int> >::vector(unsigned long, int const&, std::allocator<int> const&) /usr/include/c++/13/bits/stl_vector.h:571
+    #7 0x559d0ec39989 in BillData::BillData() src/a5_raii.cpp:6
+    #8 0x559d0ec39578 in processBill(int) src/a5_raii.cpp:10
+    #9 0x559d0ec396ce in main src/a5_raii.cpp:26
+    #10 0x7fb01bc2a1c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #11 0x7fb01bc2a28a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #12 0x559d0ec39404 in _start (/home/claude/work/out/a5_MANUAL+0x2404) (BuildId: c4174f734906a4b7b2fc5151215aea257e89cf29)
+
+SUMMARY: AddressSanitizer: 424 byte(s) leaked in 2 allocation(s).

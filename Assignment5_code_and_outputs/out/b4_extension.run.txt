@@ -1,0 +1,25 @@
+=== 1. earlier B1 tests (core_tests.h, unchanged) ===
+all 12 earlier tests PASS
+
+=== 2. new bill type and new payer ===
+Dialysis + Corporate: total 10800.00 covered 7560.00 patient 3240.00  PASS
+Dialysis + Self: patient 10800.00  PASS
+OP + Corporate (old bill, new payer): covered 1190.00  PASS
+IP + Corporate rejected: corporate budget exhausted: needs 34300.00, left 20000.00  PASS
+
+=== 3. batch with errors: nothing is lost, nothing leaks ===
+  [audit] OP Ravi: claim 1700.00 exceeds cover 1000.00
+  [audit] DC Kiran: unknown package DC-XYZ
+  settled Hari via Corporate: 10800.00
+  settled Asha via Self: 3000.00
+  settled 2, unsettled 2, collected 13800.00
+  UNSETTLED -> Ravi: claim 1700.00 exceeds cover 1000.00
+  UNSETTLED -> Kiran: unknown package DC-XYZ
+no bill lost: PASS
+
+=== 4. construction errors and a simulated allocation failure ===
+  NegativeChargeError: negative consultation
+  MissingRecordError: no record for Zoya
+  bad_alloc handled
+
+ALL B4 CHECKS PASSED

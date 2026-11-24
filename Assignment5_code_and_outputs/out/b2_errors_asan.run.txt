@@ -1,0 +1,13 @@
+=================================================================
+==217==ERROR: AddressSanitizer: out of memory: allocator is trying to allocate 0x8000000000 bytes
+    #0 0x7f4e982fe6c8 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:98
+    #1 0x563f704d82e9 in operator() src/b2_errors.cpp:37
+    #2 0x563f704db9f7 in expectThrow<main()::<lambda()> > src/b2_errors.cpp:22
+    #3 0x563f704d849d in main src/b2_errors.cpp:37
+    #4 0x7f4e97a2a1c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #5 0x7f4e97a2a28a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #6 0x563f704d6a04 in _start (/home/claude/work/out/b2_errors_asan+0x5a04) (BuildId: abd089a25592a6198a1279da2b6e463ee1fc0c83)
+
+==217==HINT: if you don't care about these errors you may set allocator_may_return_null=1
+SUMMARY: AddressSanitizer: out-of-memory ../../../../src/libsanitizer/asan/asan_new_delete.cpp:98 in operator new[](unsigned long)
+==217==ABORTING

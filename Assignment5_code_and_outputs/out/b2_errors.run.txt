@@ -1,0 +1,43 @@
+Test 1: negative consultation charge
+  [+guard]
+  [-guard]
+  caught NegativeChargeError: negative consultation
+Test 2: claim above cover (limit 1,000.00, bill 1,700.00)
+  [+guard]
+  [-guard]
+  caught CoverExceededError: claim 1700.00 exceeds cover 1000.00
+Test 3: unknown package code DC-XYZ
+  [+guard]
+  [-guard]
+  caught UnknownPackageError: unknown package DC-XYZ
+Test 4: missing patient record
+  [+guard]
+  [-guard]
+  caught MissingRecordError: no record for Zoya
+Test 5: text mixed into a number: 12O0.50 (letter O)
+  [+guard]
+  [-guard]
+  caught std::invalid_argument: trailing text after number: O0.50
+Test 6: text with no digits at all
+  [+guard]
+  [-guard]
+  caught std::invalid_argument: stod
+Test 7: memory allocation failure (new double[huge])
+  [+guard]
+  [-guard]
+  caught std::bad_alloc: std::bad_alloc
+
+stod("12.5abc") = 12.5  (plain stod silently ignores trailing text; parseRupees checks pos)
+
+--- top-level catch(...) keeps the program running ---
+  [+bill-session]
+  bill 1 processed
+  [-bill-session]
+  [+bill-session]
+  [-bill-session]
+  unknown error caught at top level; continuing
+  [+bill-session]
+  bill 3 processed
+  [-bill-session]
+
+7 of 7 error tests handled; program still running

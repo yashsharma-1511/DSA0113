@@ -1,0 +1,4 @@
+src/a2_novdtor.cpp: In function 'int main()':
+src/a2_novdtor.cpp:15:2: warning: deleting object of abstract class type 'Bill' which has non-virtual destructor will cause undefined behavior [-Wdelete-non-virtual-dtor]
+   15 |  delete b;
+      |  ^~~~~~~~

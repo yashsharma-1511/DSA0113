@@ -1,0 +1,4 @@
+sizeof: Bill-derived max=32  Rec=32  Var=32
+n=1000 virtual=0.0018 ms switch=0.0008 ms variant=0.0009 ms | totals 1810885 1810885 1810885 AGREE
+n=1000000 virtual=2.3020 ms switch=1.6319 ms variant=1.7102 ms | totals 1698017567 1698017567 1698017567 AGREE
+n=10000000 virtual=37.4634 ms switch=25.7838 ms variant=27.6028 ms | totals 16980368455 16980368455 16980368455 AGREE

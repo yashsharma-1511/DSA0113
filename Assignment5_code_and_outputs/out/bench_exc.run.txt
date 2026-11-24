@@ -1,0 +1,4 @@
+sizeof(Status)=4 sizeof(optional<long long>)=16 sizeof(long long)=8
+invalid= 0% (0 bad)  return-code=0.47 ms  exceptions=0.44 ms  optional=0.46 ms  ratio exc/rc=0.9
+invalid= 1% (10000 bad)  return-code=0.49 ms  exceptions=8.68 ms  optional=0.59 ms  ratio exc/rc=17.6
+invalid=50% (500000 bad)  return-code=0.54 ms  exceptions=334.01 ms  optional=0.89 ms  ratio exc/rc=618.3

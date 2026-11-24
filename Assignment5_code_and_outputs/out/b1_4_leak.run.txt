@@ -1,0 +1,29 @@
+
+=================================================================
+==179==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 8000 byte(s) in 1 object(s) allocated from:
+    #0 0x7fc6b4efe548 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:95
+    #1 0x561d16d604c3 in std::__new_allocator<long long>::allocate(unsigned long, void const*) /usr/include/c++/13/bits/new_allocator.h:151
+    #2 0x561d16d60398 in std::allocator_traits<std::allocator<long long> >::allocate(std::allocator<long long>&, unsigned long) /usr/include/c++/13/bits/alloc_traits.h:482
+    #3 0x561d16d60398 in std::_Vector_base<long long, std::allocator<long long> >::_M_allocate(unsigned long) /usr/include/c++/13/bits/stl_vector.h:381
+    #4 0x561d16d600ee in std::_Vector_base<long long, std::allocator<long long> >::_M_create_storage(unsigned long) /usr/include/c++/13/bits/stl_vector.h:398
+    #5 0x561d16d5fcd0 in std::_Vector_base<long long, std::allocator<long long> >::_Vector_base(unsigned long, std::allocator<long long> const&) /usr/include/c++/13/bits/stl_vector.h:335
+    #6 0x561d16d5f1c8 in std::vector<long long, std::allocator<long long> >::vector(unsigned long, long long const&, std::allocator<long long> const&) /usr/include/c++/13/bits/stl_vector.h:571
+    #7 0x561d16d5eb6d in InPatientBill::InPatientBill(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) src/b1_4_dtor.cpp:13
+    #8 0x561d16d5e674 in main src/b1_4_dtor.cpp:17
+    #9 0x7fc6b462a1c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #10 0x7fc6b462a28a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #11 0x561d16d5e4c4 in _start (/home/claude/work/out/b14bad+0x24c4) (BuildId: 0ff546a5b34e3d48d7a826d45563ad9ef2db13fb)
+
+Direct leak of 101 byte(s) in 1 object(s) allocated from:
+    #0 0x7fc6b4efe548 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:95
+    #1 0x7fc6b4b68352 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct(unsigned long, char) (/lib/x86_64-linux-gnu/libstdc++.so.6+0x168352) (BuildId: 753c6c8608b61d4e67be8f0c890e03e0aa046b8b)
+    #2 0x561d16d5f145 in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(unsigned long, char, std::allocator<char> const&) /usr/include/c++/13/bits/basic_string.h:666
+    #3 0x561d16d5ebea in InPatientBill::InPatientBill(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) src/b1_4_dtor.cpp:13
+    #4 0x561d16d5e674 in main src/b1_4_dtor.cpp:17
+    #5 0x7fc6b462a1c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #6 0x7fc6b462a28a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #7 0x561d16d5e4c4 in _start (/home/claude/work/out/b14bad+0x24c4) (BuildId: 0ff546a5b34e3d48d7a826d45563ad9ef2db13fb)
+
+SUMMARY: AddressSanitizer: 8101 byte(s) leaked in 2 allocation(s).

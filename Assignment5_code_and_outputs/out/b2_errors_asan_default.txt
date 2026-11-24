@@ -1,0 +1,13 @@
+=================================================================
+==196==ERROR: AddressSanitizer: requested allocation size 0x4000000000000000 (0x4000000000001000 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
+    #0 0x7fce832fe6c8 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:98
+    #1 0x5641f0539ea1 in operator() src/b2_errors.cpp:27
+    #2 0x5641f053d5af in expectThrow<main()::<lambda()> > src/b2_errors.cpp:12
+    #3 0x5641f053a055 in main src/b2_errors.cpp:27
+    #4 0x7fce82a2a1c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #5 0x7fce82a2a28a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #6 0x5641f05389c4 in _start (/home/claude/work/out/b2_errors_asan+0x59c4) (BuildId: 122a453c415188196c009f247b6898da39eacebd)
+
+==196==HINT: if you don't care about these errors you may set allocator_may_return_null=1
+SUMMARY: AddressSanitizer: allocation-size-too-big ../../../../src/libsanitizer/asan/asan_new_delete.cpp:98 in operator new[](unsigned long)
+==196==ABORTING

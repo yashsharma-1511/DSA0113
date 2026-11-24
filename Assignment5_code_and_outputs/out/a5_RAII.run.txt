@@ -1,0 +1,4 @@
+step 1 ok
+step 2 ok
+step 3 failed: bad claim
+step 4 failed: new error path

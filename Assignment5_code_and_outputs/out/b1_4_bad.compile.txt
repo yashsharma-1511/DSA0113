@@ -1,0 +1,4 @@
+src/b1_4_dtor.cpp: In function 'int main()':
+src/b1_4_dtor.cpp:19:5: warning: deleting object of abstract class type 'Bill' which has non-virtual destructor will cause undefined behavior [-Wdelete-non-virtual-dtor]
+   19 |     delete b;
+      |     ^~~~~~~~
